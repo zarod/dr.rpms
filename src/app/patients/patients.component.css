@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .left-column {
+    flex: 1;
+  }
+  
+  .right-column {
+    flex: 1;
+    text-align: right;
+  }
+  
+  /* .input-field {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+  } */
+  
+  .dropdown {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Layout and Positioning Styles */
+  .container {
+    margin: 20px auto;
+    max-width: 800px;
+  }
+  
+  .left-column {
+    margin-right: 20px;
+  }
+  
+  .right-column {
+    margin-left: 20px;
+  }
+  
+  .dropdown {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .button {
+    margin-top: 20px;
+  }
+  ul.checkbox-list {
+    list-style-type: none;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    max-width: 600px;
+  }
+  
+  .input-field.large {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    min-width: 300px;
+  }

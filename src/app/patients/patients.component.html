@@ -1,0 +1,66 @@
+<!--
+/**
+ *  The
+*Patients Component includes the following:
+ *  - Once the page loaded:
+ *    - The Orbitdb address, database name and IOTA address should be visible in the input fields
+ *       - After clicking the button a log database should be for the orbitdb instance. (each databse for each sensor)
+ *    - By pressing the putValues button, the following steps should be executed:
+ *       - the simulator service should be called to generate random values for the sensors
+ *       - the sensor values should be encrypted and put in the orbitdb database through     encrypted-orbitdb service
+ *      - the access values (orbitdb address, databasename, decryption key)should be put in the iota streams channel through iota service
+ *   
+ * 
+ */
+-->
+
+
+<div class="container">
+    <div class="left-column">
+      <label for="compo1">OrbitDB address:</label>
+      <input type="text" id="compo1" name="compo1" placeholder="OrbitDB address" class="input-field" ><br><br>
+      <label for="compo2">IOTA Streams address:</label>
+      <input type="text" id="compo2" name="compo2" placeholder="IOTA Streams address" class="input-field"><br><br>
+      <label for="compo3">IPFS address:</label>
+      <input type="text" id="compo3" name="compo3" placeholder="IPFS address" class="input-field large"><br><br>
+      <label for="compo4">Secret key:</label>
+      <input type="text" id="compo4" name="compo4" placeholder="Put your secret key" class="input-field">
+    </div>
+    
+    <div class="right-column">
+      <div class="sensors">  
+      <ul class="checkbox-list">
+        <li>
+          <input type="checkbox" id="sensor1" name="sensor1">
+          <label for="sensor1">Sensor 1</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sensor2" name="sensor2">
+          <label for="sensor2">Sensor 2</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sensor3" name="sensor3">
+          <label for="sensor3">Sensor 3</label>
+        </li>
+      </ul>
+      </div>
+      <div class="hospitals">
+      <ul class="checkbox-list">
+        <li>
+          <input type="checkbox" id="hospital1" name="hospital1">
+          <label for="hospital1">Hospital 1</label>
+        </li>
+        <li>
+          <input type="checkbox" id="hospital2" name="hospital2">
+          <label for="hospital2">Hospital 2</label>
+        </li>
+        <li>
+          <input type="checkbox" id="hospita3" name="hospita3">
+          <label for="hospita3">Hospital 3</label>
+        </li>
+      </ul>
+    </div>
+      <button id="compo5" name="compo5" class="button">Store data</button><br><br>
+    </div>
+  </div>
+  
