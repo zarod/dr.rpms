@@ -24,12 +24,6 @@
 
 
 
-
-
-
-
-
-
 import { Injectable } from '@angular/core';
 import init from 'iota-streams-wasm/web/iota_streams_wasm.js'
 //import { Author, SendOptions, Address } from "@iota/streams/node";
@@ -47,22 +41,20 @@ export class IOTAService {
   private author: any;
   private options: Streams.SendOptions;
 
+
+//The constructor is called when the class is instantiated
+//The init function is called to initialize the wasm library
+//The options are set with the node and the localPow
   constructor (
     private cryptoHelper: CryptoHelper,
   ) {
-    await init();
+    init();
     Streams.set_panic_hook();
-
     // Create options
     this.options = new Streams.SendOptions(this.node,true);
-
-    
     // Announce new channel
-    
-    
-    
-
   }
+
   public async createChannel() {
 
     //create seed: string;
@@ -86,7 +78,18 @@ export class IOTAService {
     console.log("Announcement link: ", announcementLink.toString());
     console.log("Channel address: ", this.author.channel_address());
     console.log("Multi branching: ", this.author.is_multi_branching());
+
+    
   }
+//what is the difference between the author and the author clone?
+// (answer)  The author is the original author and the author clone is a copy of the author
+//what is the reason for announcing the channel?
+// (answer)  The reason for announcing the channel is to let the subscribers know that the channel is created
+//can the channel be created without announcing it?
+// (answer)  Yes, the channel can be created without announcing it
+//when should the channel not be announced?
+// (answer)  The channel should not be announced when the channel is already created
+//what is the link?
 
   public async announceChannel(): Promise<void> {
     console.log('Author: Send announcement');
@@ -96,11 +99,17 @@ export class IOTAService {
     }
 
     // Announce new channel
+    //It's kind of extracting the the announcement link from the author object
     const response = await this.author.clone().send_announce();
     const announcementLink = response.link;
     console.log("Announcement link: ", announcementLink.toString());
 
     // Fetch message details
+    //what is in the message details?
+    // (answer)  The message details contains the message id
+    //can you give an example of a message id?
+    //can you show me how a message id is looks like?
+    // (answer)  The message id look like this: 0c9e1a9b    
     const announcementMessageDetails = await this.author.clone().get_client().get_link_details(announcementLink.copy());
     console.log(this.cryptoHelper.getExplorerUrl("mainnet", announcementMessageDetails.get_metadata().message_id));
 
@@ -108,8 +117,17 @@ export class IOTAService {
     writeFileSync('./offTangleComs/1_announcement.txt', announcementLink.toString());
   }
 
+  //Is it possible to find the channel address from the announcement link?
+  // (answer)  Yes, it is possible to find the channel address from the announcement link
+  //is the channel address the same as the announcement link?
+  //which information is in the announcement link?
+  // (answer)  The announcement link contains the channel address
+  //Does the announcement link contain the message id?
+  // (answer)  Yes, the announcement link contains the message id
+  //Does the announcement link contain the seed?
+  
   addkeys2IOTA(keys: string[]){
-    new Streams.
+    
   }
 
   addChannel(owner, address, link) {
@@ -131,8 +149,8 @@ export class IOTAService {
     await this.author.clone().receive_subscribe(subscriptionLink.copy());
 
     // Read announcement message
-    const announcementLinkString = readFileSync('./offTangleComs/1_announcement.txt', 'utf8');
-    const announcementLink = Streams.Address.parse(announcementLinkString);
+    //const announcementLinkString = readFileSync('./offTangleComs/1_announcement.txt', 'utf8');
+    //const announcementLink = Streams.Address.parse(announcementLinkString);
 
     // Send keyload message
     const response = await this.author.clone().send_keyload_for_everyone(announcementLink);
