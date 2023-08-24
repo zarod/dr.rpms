@@ -11,8 +11,8 @@ export class CryptoHelper {
 
   constructor(
     private iotaService: IOTAService,
-
   ) {}
+  
   private intervalId: any;
   private encryptionKey = 'my-secret-key';
 
@@ -99,10 +99,11 @@ addEncryptedDataToOrbitDB(){
 
 }
 //todo: add encrypted data to iota channel
-addEncryptedKeyToIOTAChannel(channelAddress){
-  this.iotaService.
+addEncryptedKeyToIOTAChannel(){
+  
 }
   
+}
 
   
 

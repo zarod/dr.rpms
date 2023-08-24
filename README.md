@@ -1,5 +1,9 @@
 # DrRpms
 
+- This prototype was created in the context of the BLING (Blockchain in Government) project. The idea is to storing the sensor data for the remote patients monitoring system in a decentralized manner.
+- For that purpose we use IOTA as an access control mechanism, and Orbitdb IPFS based p2p database to store the sensor-data.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
 ## Development server
